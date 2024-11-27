@@ -7,9 +7,12 @@ public class Health : MonoBehaviour
     public int maxHealth = 100; // Maximum health
     public int currentHealth; // Current health
 
+    public HealthBar healthBar;
+
     void Start()
     {
         currentHealth = maxHealth; // Initialize health
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Method to take damage
@@ -22,6 +25,8 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+
+        healthBar.SetHealth(currentHealth);
     }
 
     // Method to heal (optional)
